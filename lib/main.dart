@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:movies_api/pages/home_page.dart';
+import 'package:movies_api/provider/movies_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => MoviesProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
